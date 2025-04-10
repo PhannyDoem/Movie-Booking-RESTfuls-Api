@@ -11,5 +11,5 @@ public interface TheaterService {
     Theater createTheater(PostTheaterDto postTheaterDto);
     List<Theater> getAllTheaters();
     Optional<Theater> getTheaterById(Long theaterId);
-    Theater updateTheater(PutTheaterDto putTheaterDto);
+    Theater updateTheater(Long theaterId,PutTheaterDto putTheaterDto);
 }

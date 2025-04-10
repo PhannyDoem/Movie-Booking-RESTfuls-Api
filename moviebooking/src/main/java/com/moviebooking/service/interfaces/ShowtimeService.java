@@ -11,5 +11,5 @@ public interface ShowtimeService {
     Showtime createShowtime(PostShowtimeDto postShowtimeDto);
     List<Showtime> getAllShowtimes();
     Optional<Showtime> getShowtimeById(Long showtimeId);
-    Showtime updateShowtime(PutShowtimeDto putShowtimeDto);
+    Showtime updateShowtime(Long showtimeId, PutShowtimeDto putShowtimeDto);
 }

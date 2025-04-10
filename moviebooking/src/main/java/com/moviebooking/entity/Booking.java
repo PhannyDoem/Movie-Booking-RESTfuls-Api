@@ -23,10 +23,11 @@ public class Booking {
 
     public Booking() {}
 
-    public Booking(Integer seats, Payment payment, User user) {
+    public Booking(Integer seats, Payment payment, User user, Showtime showtime) {
         this.seats = seats;
         this.payment = payment;
         this.user = user;
+        this.showtime =  showtime;
     }
 
     public Long getBookingId() {

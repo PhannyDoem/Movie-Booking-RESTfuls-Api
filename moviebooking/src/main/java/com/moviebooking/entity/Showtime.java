@@ -13,22 +13,21 @@ public class Showtime {
     private Long showtimeId;
     private LocalDate startDate;
     private LocalDate endDate;
-    private Integer seats;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "movie_id", nullable = false)
     private Movie movie;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "theater_id", nullable = false)
     private Theater theater;
 
     public Showtime(){}
 
-    public Showtime(LocalDate startDate, LocalDate endDate, Integer seats, Movie movie, Theater theater) {
+    public Showtime(LocalDate startDate, LocalDate endDate, Movie movie, Theater theater) {
         this.startDate = startDate;
         this.endDate = endDate;
-        this.seats = seats;
         this.movie = movie;
+        this.theater = theater;
     }
 
     public LocalDate getEndDate() {
@@ -45,14 +44,6 @@ public class Showtime {
 
     public void setMovie(Movie movie) {
         this.movie = movie;
-    }
-
-    public Integer getSeats() {
-        return seats;
-    }
-
-    public void setSeats(Integer seats) {
-        this.seats = seats;
     }
 
     public Long getShowtimeId() {

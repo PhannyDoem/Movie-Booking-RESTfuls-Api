@@ -11,7 +11,6 @@ public class ShowtimeMapper {
         Showtime showtime = new Showtime(
                 postShowtimeDto.startDate(),
                 postShowtimeDto.endDate(),
-                postShowtimeDto.seats(),
                 postShowtimeDto.movie(),
                 postShowtimeDto.theater()
         );
@@ -24,7 +23,6 @@ public class ShowtimeMapper {
         Showtime showtime = new Showtime(
                 putShowtimeDto.startDate(),
                 putShowtimeDto.endDate(),
-                putShowtimeDto.seats(),
                 putShowtimeDto.movie(),
                 putShowtimeDto.theater()
         );

@@ -37,7 +37,8 @@ public class MovieController {
     }
     @GetMapping("/movies")
     public ResponseEntity<List<Movie>> getAllMovies() {
-        return new ResponseEntity<>(movieServiceImplementation.getAllMovies(), HttpStatus.OK);
+        List<Movie> movies = movieServiceImplementation.getAllMovies();
+        return new ResponseEntity<>(movies, HttpStatus.OK);
     }
 
     @PutMapping("/movies/{movieId}")
