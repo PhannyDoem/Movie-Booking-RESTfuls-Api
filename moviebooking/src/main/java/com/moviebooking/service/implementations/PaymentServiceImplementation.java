@@ -51,7 +51,10 @@ public class PaymentServiceImplementation implements PaymentService {
     @Override
     public Payment updatePayment(Long paymentId, PutPaymentDto putPaymentDto) {
         if (paymentId != null){
-            paymentRepository.findById(paymentId).map(
+            paymentRepository.findById(paymentId)
+                    .stream()
+                    .findFirst()
+                    .map(
                     updatedPayment -> {
                         updatedPayment.setPaymentDate(putPaymentDto.paymentDate());
                         updatedPayment.setAmount(putPaymentDto.amount());

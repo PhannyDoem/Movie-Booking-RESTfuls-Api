@@ -48,7 +48,11 @@ public class BookingServiceImplementation implements BookingService {
     @Override
     public Booking updateBooking(Long bookingId, PutBookingDto putBookingDto) {
         if (bookingId != null) {
-            bookingRepository.findById(bookingId).map(
+            bookingRepository
+                    .findById(bookingId)
+                    .stream()
+                    .findFirst()
+                    .map(
                     updatedBooking -> {
                         updatedBooking.setSeats(putBookingDto.seats());
                         updatedBooking.setPayment(putBookingDto.payment());

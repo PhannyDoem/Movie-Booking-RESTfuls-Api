@@ -46,7 +46,11 @@ public class AdminServiceImplementation implements AdminService {
     @Override
     public Admin updateAdminById(Long adminId, PutAdminDto putAdminDto) {
         if (adminId != null) {
-             adminRepository.findById(adminId).map(
+             adminRepository
+                     .findById(adminId)
+                     .stream()
+                     .findFirst()
+                     .map(
                     updateAdmin -> {
                         updateAdmin.setUsername(putAdminDto.username());
                         updateAdmin.setEmail(putAdminDto.email());

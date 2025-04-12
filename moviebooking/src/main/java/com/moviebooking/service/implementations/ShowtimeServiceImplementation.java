@@ -49,7 +49,8 @@ public class ShowtimeServiceImplementation implements ShowtimeService {
     @Override
     public Showtime updateShowtime(Long showtimeId, PutShowtimeDto putShowtimeDto) {
         if (showtimeId != null){
-            showtimeRepository.findById(showtimeId).map(
+            showtimeRepository.findById(showtimeId)
+                    .stream().findFirst().map(
                     updatedShowtime -> {
                         updatedShowtime.setStartDate(putShowtimeDto.startDate());
                         updatedShowtime.setEndDate(putShowtimeDto.endDate());

@@ -46,7 +46,10 @@ public class TheaterServiceImplementation implements TheaterService {
     @Override
     public Theater updateTheater(Long theaterId, PutTheaterDto putTheaterDto) {
         if (theaterId != null){
-            theaterRepository.findById(theaterId).map(
+            theaterRepository.findById(theaterId)
+                    .stream()
+                    .findFirst()
+                    .map(
                     updatedTheater -> {
                         updatedTheater.setName(putTheaterDto.name());
                         updatedTheater.setLocation(putTheaterDto.location());

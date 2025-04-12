@@ -49,7 +49,10 @@ public class MovieServiceImplementation implements MovieService {
     @Override
     public Movie updateMovieById(Long movieId, PutMovieDto putMovieDto) {
         if (movieId != null){
-            movieRepository.findById(movieId).map(
+            movieRepository.findById(movieId)
+                    .stream()
+                    .findFirst()
+                    .map(
                     movie -> {
                 movie.setTitle(putMovieDto.title());
                 movie.setGenre(putMovieDto.genre());

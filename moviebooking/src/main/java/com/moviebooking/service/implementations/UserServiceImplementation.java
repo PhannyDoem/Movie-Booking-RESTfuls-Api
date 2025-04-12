@@ -35,7 +35,10 @@ public class UserServiceImplementation implements UserService {
     @Override
     public User updateUser(Long userId, PutUserDto putUserDto) {
         if (userId != null) {
-            userRepository.findById(userId).map(
+            userRepository.findById(userId)
+                    .stream()
+                    .findFirst()
+                    .map(
                     updatedUser -> {
                         updatedUser.setUsername(putUserDto.username());
                         updatedUser.setEmail(putUserDto.email());
